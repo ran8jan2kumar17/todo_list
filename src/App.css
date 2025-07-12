@@ -1,0 +1,158 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  align-items: center;
+}
+
+.container {
+  width: 50vw;
+  height: 95vh;
+  background-color: rgb(136, 136, 242);
+  border-radius: 1vw;
+  margin: 2vh;
+}
+
+.hedder {
+  padding: 1.5vw;
+  margin: 0 2vw;
+}
+
+.hed {
+  border-bottom: 0.1vw solid black;
+  padding-bottom: 1vw;
+  margin: 0 1vw;
+}
+
+.text {
+  width: 30vw;
+  height: 1.7vw;
+  margin: 0 2vw;
+  font-size: 1.3vw;
+  background-color: rgb(202, 202, 251);
+  border-radius: 0.5vw;
+}
+
+.add {
+  width: 4vw;
+  height: 1.7vw;
+  background-color: rgb(7, 118, 7);
+  border: 0.1vw solid black;
+  display: inline;
+  padding: 0.3vw;
+  border-radius: 0.3vw;
+  color: white;
+  cursor: pointer;
+}
+
+.add:active {
+  width: 5vw;
+  height: 1.7vw;
+  background-color: rgb(5, 127, 5);
+  border: 0.1vw solid black;
+  cursor: pointer;
+  font-weight: bolder;
+  padding: 0.4vw;
+}
+
+.list {
+  width: 50vw;
+  height: 77vh;
+  border-radius: 1vw;
+  padding: 1.5vw;
+}
+
+.list1 {
+  width: 47vw;
+  height: 72vh;
+}
+
+.yl {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  width: 15vw;
+  height: 30vh;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  padding: 5vh;
+  border-radius: 2vh;
+  flex-direction: column;
+}
+
+.log {
+  width: 50vw;
+  height: 95vh;
+  background-color: aqua;
+  border-radius: 1vw;
+  margin: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.submit {
+  width: 3.5vw;
+  height: 4vh;
+  background-color: green;
+  margin: 1vh;
+  border-radius: 0.2vw;
+  font-weight: bold;
+}
+
+.ur {
+  width: 17vw;
+  height: 1.5vw;
+  font-size: 1.5vw;
+  background-color: rgb(8, 245, 245);
+}
+
+.h3 {
+  text-decoration: underline blue;
+  cursor: pointer;
+}
+
+.ol {
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vw;
+  overflow-y: scroll;
+
+}
+
+.ol>li {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5vw 1.5vw;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: rgb(3, 200, 3);
+  border-radius: 0.5vh;
+  cursor: pointer;
+}
+
+.hb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rbtn {
+
+  font-size: 4vh;
+  cursor: pointer;
+}
