@@ -160,10 +160,14 @@ body {
  .log{
   width: 100vw;
   height: 100vh;
+  padding: 0;
+  margin: 0;
  }
  .login{
   width: 100vw;
   align-items: center;
+  padding: 0;
+  margin: 0;
  }
  .ur{
   width: 70vw;
@@ -176,8 +180,8 @@ body {
    font-size: 5vh;
  }
  .submit{
-  width: 19vw;
-  height: 10vh;
+  width: 40vw;
+  height: 6vh;
   font-size: 4vh;
   padding: 1vh;
   border-radius: 1vw;
