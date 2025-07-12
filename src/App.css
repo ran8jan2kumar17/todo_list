@@ -156,3 +156,33 @@ body {
   font-size: 4vh;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+ .log{
+  width: 100vw;
+  height: 100vh;
+ }
+ .login{
+  width: 100vw;
+  align-items: center;
+ }
+ .ur{
+  width: 70vw;
+  height: 5vh;
+ }
+ h2{
+  font-size: 5vh;
+ }
+ h1{
+   font-size: 5vh;
+ }
+ .submit{
+  width: 19vw;
+  height: 6vh;
+  font-size: 4vh;
+  padding: 1vh;
+  border-radius: 1vw;
+ }
+ .h3{
+   font-size: 4vh;
+ }
+}
