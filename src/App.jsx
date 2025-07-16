@@ -26,7 +26,7 @@ function App() {
       alert("filling passwerd is required.")
     } else {
       try {
-        const response = await fetch('http://localhost:8000/singup', {
+        const response = await fetch('https://todo-backend-e5ny.onrender.com/singup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ function App() {
       alert("filling passwerd is required.")
     } else {
       try {
-        const response = await fetch('http://localhost:8000/login', {
+        const response = await fetch('https://todo-backend-e5ny.onrender.com/login', {
           method: 'POST',
           credentials: 'include',
           headers: {
@@ -109,7 +109,7 @@ function App() {
   //handle todo
   async function getlist() {
     try {
-      const response = await fetch('http://localhost:8000/getTodos', {
+      const response = await fetch('https://todo-backend-e5ny.onrender.com/getTodos', {
         method: "GET",
         credentials: "include", // ⬅️ Required to send cookie
       });
@@ -133,7 +133,7 @@ function App() {
 
   async function htl() {
     try {
-      const response = await fetch('http://localhost:8000/todo', {
+      const response = await fetch('https://todo-backend-e5ny.onrender.com/todo', {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -156,7 +156,7 @@ function App() {
   async function hd(index) {
     try {
       const dl = index;
-      const response = await fetch('http://localhost:8000/delete', {
+      const response = await fetch('https://todo-backend-e5ny.onrender.com/delete', {
         method: "POST",
         credentials: "include",
         body: dl, // ⬅️ Required to send cookie
@@ -187,7 +187,7 @@ function App() {
   // Handle isDone toggle
 async function hup(todoItem) {
   try {
-    const response = await fetch('http://localhost:8000/hup', {
+    const response = await fetch('https://todo-backend-e5ny.onrender.com/hup', {
       method: "POST",
       credentials: "include",
       headers: {
