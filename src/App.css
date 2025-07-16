@@ -156,37 +156,90 @@ body {
   font-size: 4vh;
   cursor: pointer;
 }
+
 @media (max-width: 768px) {
- .log{
-  width: 100vw;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
- }
- .login{
-  width: 100vw;
-  align-items: center;
-  padding: 0;
-  margin: 0;
- }
- .ur{
-  width: 70vw;
-  height: 5vh;
- }
- h2{
-  font-size: 5vh;
- }
- h1{
-   font-size: 5vh;
- }
- .submit{
-  width: 40vw;
-  height: 6vh;
-  font-size: 4vh;
-  padding: 1vh;
-  border-radius: 1vw;
- }
- .h3{
-   font-size: 4vh;
- }
+  .container {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hb {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+   .text{
+    width: 70vw;
+    height: 4vh;
+    font-size: 3.9vh;
+   }
+   .add{
+    height: 4vh;
+   }
+   .li{
+    font-size: 2vh;
+   }
+  .hedder {
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+  }
+
+  .list {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  .list1 {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  .log {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  .login {
+    width: 100vw;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ur {
+    width: 70vw;
+    height: 5vh;
+    font-size: 4.9vh;
+  }
+
+  h2 {
+    font-size: 5vh;
+  }
+
+  h1 {
+    font-size: 5vh;
+  }
+
+  .submit {
+    width: 40vw;
+    height: 6vh;
+    font-size: 4vh;
+    padding: 1vh;
+    border-radius: 1vw;
+  }
+
+  .h3 {
+    font-size: 4vh;
+  }
 }
