@@ -27,8 +27,8 @@ function App() {
       alert("filling passwerd is required.")
     } else {
       try {
-        //const response = await fetch('https://todo-backend-3-9tr9.onrender.com/singup', {
-        const response = await fetch('http://localhost:8000/singup', {
+        const response = await fetch('https://todo-backend-3-9tr9.onrender.com/singup', {
+       // const response = await fetch('http://localhost:8000/singup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -68,8 +68,8 @@ function App() {
       alert("filling passwerd is required.")
     } else {
       try {
-       // const response = await fetch('https://todo-backend-3-9tr9.onrender.com/login', {
-       const response = await fetch('http://localhost:8000/login', {
+        const response = await fetch('https://todo-backend-3-9tr9.onrender.com/login', {
+      // const response = await fetch('http://localhost:8000/login', {
           method: 'POST',
           credentials: 'include',
           headers: {
@@ -112,8 +112,8 @@ function App() {
   //handle todo
   async function getlist() {
     try {
-      //const response = await fetch('https://todo-backend-3-9tr9.onrender.com/getTodos', {
-      const response = await fetch('http://localhost:8000/getTodos', {
+      const response = await fetch('https://todo-backend-3-9tr9.onrender.com/getTodos', {
+      //const response = await fetch('http://localhost:8000/getTodos', {
         method: "GET",
         credentials: "include", // ⬅️ Required to send cookie
       });
@@ -137,8 +137,8 @@ function App() {
 
   async function htl() {
     try {
-      //const response = await fetch('https://todo-backend-3-9tr9.onrender.com/todo', {
-      const response = await fetch('http://localhost:8000/todo', {
+      const response = await fetch('https://todo-backend-3-9tr9.onrender.com/todo', {
+      //const response = await fetch('http://localhost:8000/todo', {
         method: 'POST',
         credentials: 'include',
         headers: {
