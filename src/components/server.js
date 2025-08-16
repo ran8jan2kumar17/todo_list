@@ -6,7 +6,10 @@ import cookieParser from 'cookie-parser';
 const app = e();
 const s = "ranjan123"
 
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173",   // ✅ must match frontend origin
+  credentials: true                  // ✅ allow cookies/authorization headers
+}));
 app.use(cookieParser());
 app.use(e.json()); // For parsing JSON bodies
 app.use(e.urlencoded({ extended: true })); // For parsing URL-encoded bodies
@@ -34,7 +37,7 @@ function vt(t) {
 
 
 
-app.post('https://todo-backend-e5ny.onrender.com/singup', async (req, res) => {
+app.post('/singup', async (req, res) => {
     try {
         const { ur, pass } = req.body;
         const r = await sh1.findOne({ pass: pass });
@@ -51,7 +54,7 @@ app.post('https://todo-backend-e5ny.onrender.com/singup', async (req, res) => {
 
 })
 
-app.post("https://todo-backend-e5ny.onrender.com/login", async (req, res) => {
+app.post("/login", async (req, res) => {
     try {
         const { ur, pass } = req.body;
         const r = await sh1.findOne({ pass: pass });
@@ -76,7 +79,7 @@ app.post("https://todo-backend-e5ny.onrender.com/login", async (req, res) => {
 })
 
 
-app.post("https://todo-backend-e5ny.onrender.com/todo", async (req, res) => {
+app.post("/todo", async (req, res) => {
     try {
         const t = req.cookies.token;
         const v = vt(t);
@@ -101,7 +104,7 @@ app.post("https://todo-backend-e5ny.onrender.com/todo", async (req, res) => {
 
 })
 
-app.get('https://todo-backend-e5ny.onrender.com/getTodos', async (req, res) => {
+app.get('/getTodos', async (req, res) => {
     try {
         const t = req.cookies.token;
         const v = vt(t);
@@ -122,7 +125,7 @@ app.get('https://todo-backend-e5ny.onrender.com/getTodos', async (req, res) => {
 })
 
 //handele delete
-app.post('https://todo-backend-e5ny.onrender.com/delete', async (req, res) => {
+app.post('/delete', async (req, res) => {
     try {
         const t = req.cookies.token;
         const v = vt(t);
@@ -143,7 +146,7 @@ app.post('https://todo-backend-e5ny.onrender.com/delete', async (req, res) => {
     }
 })
 
-app.post("https://todo-backend-e5ny.onrender.com/hup", async (req, res) => {
+app.post("/hup", async (req, res) => {
   try {
     const t = req.cookies.token;
     const v = vt(t);
