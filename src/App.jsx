@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import './App.css'
+import dsvg from "./dbtn.svg"
 
 
 function App() {
@@ -213,11 +214,11 @@ async function hup(todoItem) {
   return (
     <>
       {showS ? (
-        <div className="log"><h1>SingUp</h1>  <div className="login">
+        <div className="log"><h1 className='in'>SingUp</h1>  <div className="login">
           <h2>User Name:</h2>
-          <input type="text" onChange={(e) => setUr(e.target.value)} required value={ur} className="ur" />
-          <h2>Passward: </h2>
-          <input type="text" className="ur ps" value={pass} required onChange={(e) => setPass(e.target.value)} /><br></br>
+          <input type="text" autoFocus placeholder='Enter UserName' onChange={(e) => setUr(e.target.value)} required value={ur} className="ur" />
+          <h2>Passwaod: </h2>
+          <input type="text" placeholder='Enter Password' className="ur ps" value={pass} required onChange={(e) => setPass(e.target.value)} /><br></br>
           <button type='submit' className='submit' onClick={hs} name='submit'>Submit</button>
         </div>
           <h3 className='h3' onClick={hha}>Login.</h3>
@@ -225,11 +226,11 @@ async function hup(todoItem) {
       {/* login*/}
       {showLogin ? (
         <div className='b'>
-          <div className="log"><h1>LogIn</h1>  <div className="login">
+          <div className="log"><h1 className='in'>LogIn</h1>  <div className="login">
             <h2>User Name:</h2>
-            <input type="text" onChange={(e) => setUr(e.target.value)} required className="ur" />
-            <h2>Passward: </h2>
-            <input type="text" className="ur ps" required onChange={(e) => setPass(e.target.value)} /><br></br>
+            <input type="text" placeholder='Enter UserName' autoFocus onChange={(e) => setUr(e.target.value)} required className="ur" />
+            <h2>Password: </h2>
+            <input type="text" placeholder='Enter Password'  className="ur ps"  required onChange={(e) => setPass(e.target.value)} /><br></br>
             <button type='submit' className='submit' onClick={hl} name='submit'>Submit</button>
           </div>
             <h3 className='h3' onClick={hnha}>I don't have any account.</h3>
@@ -241,7 +242,7 @@ async function hup(todoItem) {
         <div className="container">
           <div className="hed">
 
-            <div className='hb'> <h1 className="hedder">Tode List</h1> <button className='rbtn' onClick={getlist}>🔄</button>  </div>
+            <div className='hb'> <h1 className="hedder">Todo List</h1> <button className='rbtn' onClick={getlist}>🔄</button>  </div>
             <input type="text" value={list} onChange={(e) => setList(e.target.value)} placeholder='Add Todo Here' className="text" />
             <div onClick={htl} className="add">Add
             </div></div>

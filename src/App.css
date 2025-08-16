@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: aliceblue;
+  background-color: rgb(109, 1, 142);
   display: flex;
   justify-content: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -14,9 +14,10 @@ body {
 .container {
   width: 50vw;
   height: 95vh;
-  background-color: rgb(136, 136, 242);
+  background-color: rgb(39, 2, 63);
   border-radius: 1vw;
   margin: 2vh;
+  color: white;
 }
 
 .hedder {
@@ -35,14 +36,16 @@ body {
   height: 1.7vw;
   margin: 0 2vw;
   font-size: 1.3vw;
-  background-color: rgb(202, 202, 251);
-  border-radius: 0.5vw;
+  background-color: rgb(33, 5, 85);
+  border-radius: 1vw;
+  padding: 5px 10px;
+  color: white;
 }
 
 .add {
   width: 4vw;
   height: 1.7vw;
-  background-color: rgb(7, 118, 7);
+  background-color: rgb(38, 7, 118);
   border: 0.1vw solid black;
   display: inline;
   padding: 0.3vw;
@@ -54,11 +57,12 @@ body {
 .add:active {
   width: 5vw;
   height: 1.7vw;
-  background-color: rgb(5, 127, 5);
+  background-color: rgb(38, 1, 93);
   border: 0.1vw solid black;
   cursor: pointer;
   font-weight: bolder;
   padding: 0.4vw;
+  color: white;
 }
 
 .list {
@@ -66,6 +70,9 @@ body {
   height: 77vh;
   border-radius: 1vw;
   padding: 1.5vw;
+}
+h2{
+  margin: 1vw 0;
 }
 
 .list1 {
@@ -81,7 +88,7 @@ body {
 
 .login {
   width: 15vw;
-  height: 30vh;
+  height: 33vh;
   display: flex;
   align-self: center;
   justify-content: center;
@@ -93,29 +100,33 @@ body {
 .log {
   width: 50vw;
   height: 95vh;
-  background-color: aqua;
+  background-color: rgb(39, 3, 92);
   border-radius: 1vw;
   margin: 2vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color:white;
 }
 
 .submit {
-  width: 3.5vw;
+  width: 18vw;
   height: 4vh;
-  background-color: green;
+  background-color: rgb(54, 2, 107);
   margin: 1vh;
-  border-radius: 0.2vw;
-  font-weight: bold;
+  border-radius: 1vw;
+  color: white;
 }
 
 .ur {
   width: 17vw;
-  height: 1.5vw;
-  font-size: 1.5vw;
-  background-color: rgb(8, 245, 245);
+  height: 1vw;
+  font-size: 1vw;
+  background-color: rgb(66, 10, 115);
+  padding: 5px 10px;
+  border-radius: 1vw;
+  color: white;
 }
 
 .h3 {
@@ -123,14 +134,18 @@ body {
   cursor: pointer;
 }
 
+
+
 .ol {
-  height: 65vh;
+  height: 62vh;
   display: flex;
   flex-direction: column;
   margin-top: 2vw;
   overflow-y: scroll;
 
 }
+
+
 
 .ol>li {
   display: flex;
@@ -140,9 +155,10 @@ body {
 }
 
 .btn {
-  background-color: rgb(3, 200, 3);
+  background-color: rgb(36, 4, 88);
   border-radius: 0.5vh;
   cursor: pointer;
+  color: white;
 }
 
 .hb {
@@ -152,21 +168,27 @@ body {
 }
 
 .rbtn {
-
+  
+  right: 4vw;
+  top:2vw;
   font-size: 4vh;
   cursor: pointer;
 }
 
 @media (max-width: 768px) {
   .container {
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
+    width: 95vw;
+    height: 95vh;
+    margin: 10px;
+    border-radius: 20px;
+    padding-left: 2vw;
+    padding-right: 1vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
   }
 
   .hb {
-    width: 100vw;
+    width: 95vw;
     display: flex;
     align-items: center;
     padding: 0;
@@ -175,60 +197,79 @@ body {
    .text{
     width: 70vw;
     height: 4vh;
-    font-size: 3.9vh;
+    font-size: 2vh;
+    padding: 0.2vh;
+    padding-left: 1vh;
+    margin: 1vw;
+    border-radius: 2vh;
    }
    .add{
     height: 4vh;
+    margin-left: 3vw;
    }
    .li{
     font-size: 2vh;
    }
   .hedder {
-    width: 100vw;
+    width: 94vw;
+    font-size: 4.5vw;
     padding: 0;
-    margin: 0;
+    margin: 1vw;
   }
 
   .list {
-    width: 100vw;
-    height: 100vh;
+    width: 95vw;
+    height: 85vh;
     padding: 0;
     margin: 0;
   }
 
   .list1 {
-    width: 100vw;
-    height: 100vh;
+    width: 95vw;
+    height: 85vh;
     padding: 0;
     margin: 0;
   }
 
   .log {
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
+    width: 95vw;
+    height: 95vh;
+    margin: 10px;
+    border-radius: 20px;
+    padding-left: 2vw;
+    padding-right: 1vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+  }
+  .in{
+     margin-bottom: 2vw;
   }
 
   .login {
     width: 100vw;
     align-items: center;
     padding: 0;
-    margin: 0;
+    margin-bottom: 0vw;
   }
 
   .ur {
-    width: 70vw;
-    height: 5vh;
-    font-size: 4.9vh;
+    width: 60vw;
+    height: 3.5vh;
+    font-size: 2vh;
+    padding-left: 1vh;
+    border-radius: 3vw;
+    margin: 2vw 0;
   }
 
   h2 {
-    font-size: 5vh;
+    font-size: 3vh;
+  }
+  .rbtn{
+    position: absolute;
   }
 
   h1 {
-    font-size: 5vh;
+    font-size: 3vh;
   }
 
   .submit {
@@ -241,5 +282,15 @@ body {
 
   .h3 {
     font-size: 4vh;
+  }
+  .yl{
+    width: 90vw;
+    font-size: 4vw;
+    margin-right: 0vw;
+    margin-top: 2vw;
+  }
+  .ol{
+    width: 94vw;
+    height: 93;
   }
 }
