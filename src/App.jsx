@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import './App.css'
-import dsvg from "./dbtn.svg"
+
 
 
 function App() {
@@ -27,7 +27,8 @@ function App() {
       alert("filling passwerd is required.")
     } else {
       try {
-        const response = await fetch('https://todo-backend-3-9tr9.onrender.com/singup', {
+        //const response = await fetch('https://todo-backend-3-9tr9.onrender.com/singup', {
+        const response = await fetch('http://localhost:8000/singup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -67,7 +68,8 @@ function App() {
       alert("filling passwerd is required.")
     } else {
       try {
-        const response = await fetch('https://todo-backend-3-9tr9.onrender.com/login', {
+       // const response = await fetch('https://todo-backend-3-9tr9.onrender.com/login', {
+       const response = await fetch('http://localhost:8000/login', {
           method: 'POST',
           credentials: 'include',
           headers: {
@@ -110,7 +112,8 @@ function App() {
   //handle todo
   async function getlist() {
     try {
-      const response = await fetch('https://todo-backend-3-9tr9.onrender.com/getTodos', {
+      //const response = await fetch('https://todo-backend-3-9tr9.onrender.com/getTodos', {
+      const response = await fetch('http://localhost:8000/getTodos', {
         method: "GET",
         credentials: "include", // ⬅️ Required to send cookie
       });
@@ -134,7 +137,8 @@ function App() {
 
   async function htl() {
     try {
-      const response = await fetch('https://todo-backend-3-9tr9.onrender.com/todo', {
+      //const response = await fetch('https://todo-backend-3-9tr9.onrender.com/todo', {
+      const response = await fetch('http://localhost:8000/todo', {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -214,10 +218,10 @@ async function hup(todoItem) {
   return (
     <>
       {showS ? (
-        <div className="log"><h1 className='in'>SingUp</h1>  <div className="login">
+        <div className="log"><h1 className='in'>SignUp</h1>  <div className="login">
           <h2>User Name:</h2>
           <input type="text" autoFocus placeholder='Enter UserName' onChange={(e) => setUr(e.target.value)} required value={ur} className="ur" />
-          <h2>Passwaod: </h2>
+          <h2>Password: </h2>
           <input type="text" placeholder='Enter Password' className="ur ps" value={pass} required onChange={(e) => setPass(e.target.value)} /><br></br>
           <button type='submit' className='submit' onClick={hs} name='submit'>Submit</button>
         </div>
@@ -226,7 +230,7 @@ async function hup(todoItem) {
       {/* login*/}
       {showLogin ? (
         <div className='b'>
-          <div className="log"><h1 className='in'>LogIn</h1>  <div className="login">
+          <div className="log"><h1 className='in'>Login</h1>  <div className="login">
             <h2>User Name:</h2>
             <input type="text" placeholder='Enter UserName' autoFocus onChange={(e) => setUr(e.target.value)} required className="ur" />
             <h2>Password: </h2>
@@ -242,7 +246,7 @@ async function hup(todoItem) {
         <div className="container">
           <div className="hed">
 
-            <div className='hb'> <h1 className="hedder">Todo List</h1> <button className='rbtn' onClick={getlist}>🔄</button>  </div>
+            <div className='hb'> <h1 className="hedder">Todo List</h1> <button className='rbtn' style={{display:"none"}} onClick={getlist}>🔄</button>  </div>
             <input type="text" value={list} onChange={(e) => setList(e.target.value)} placeholder='Add Todo Here' className="text" />
             <div onClick={htl} className="add">Add
             </div></div>
@@ -252,7 +256,7 @@ async function hup(todoItem) {
               <ol className='ol'>
                 {tl.map((value, index) => (
                   <li style={{textDecoration: value.isDone ? "line-through" : "none"}} onClick={()=> hup(value)} className='li' key={index}>{value.todo}
-                    <div><button onClick={() => hu(value.todo)} className='update btn'>Update</button><button onClick={() => hd(value.todo)} className='delet btn'>Delete</button></div></li>
+                    <div><button onClick={() => hu(value.todo)} className='update btn'><img src='/update.png' width={20} height={23}></img></button><button onClick={() => hd(value.todo)} className='delet btn'><img src='/delete.png' width={20} height={23}></img></button></div></li>
                 ))}
               </ol>
             </div>
