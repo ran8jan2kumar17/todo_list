@@ -23,8 +23,11 @@ function App() {
   async function hs() {
     if (ur == '') {
       alert("filling user name is required.")
-    } if (pass == '') {
+    } 
+    if (pass == '') {
       alert("filling passwerd is required.")
+    } else if(isNaN(pass)){
+      alert("Password should only number.")
     } else {
       try {
         const response = await fetch('https://todo-backend-3-9tr9.onrender.com/singup', {
@@ -66,6 +69,8 @@ function App() {
       alert("filling user name is required.")
     } if (pass == '') {
       alert("filling passwerd is required.")
+    }if(isNaN(pass)){
+      alert("Password should only number.")
     } else {
       try {
         const response = await fetch('https://todo-backend-3-9tr9.onrender.com/login', {
@@ -222,7 +227,7 @@ async function hup(todoItem) {
           <h2>User Name:</h2>
           <input type="text" autoFocus placeholder='Enter UserName' onChange={(e) => setUr(e.target.value)} required value={ur} className="ur" />
           <h2>Password: </h2>
-          <input type="text" placeholder='Enter Password' className="ur ps" value={pass} required onChange={(e) => setPass(e.target.value)} /><br></br>
+          <input type="password" placeholder='Enter Password' className="ur ps" value={pass} required onChange={(e) => setPass(e.target.value)} /><br></br>
           <button type='submit' className='submit' onClick={hs} name='submit'>Submit</button>
         </div>
           <h3 className='h3' onClick={hha}>Login.</h3>
@@ -234,7 +239,7 @@ async function hup(todoItem) {
             <h2>User Name:</h2>
             <input type="text" placeholder='Enter UserName' autoFocus onChange={(e) => setUr(e.target.value)} required className="ur" />
             <h2>Password: </h2>
-            <input type="text" placeholder='Enter Password'  className="ur ps"  required onChange={(e) => setPass(e.target.value)} /><br></br>
+            <input type="password" placeholder='Enter Password'  className="ur ps"  required onChange={(e) => setPass(e.target.value)} /><br></br>
             <button type='submit' className='submit' onClick={hl} name='submit'>Submit</button>
           </div>
             <h3 className='h3' onClick={hnha}>I don't have any account.</h3>
