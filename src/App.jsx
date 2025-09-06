@@ -12,6 +12,7 @@ function App() {
   const [list, setList] = useState('');
   const [tl, setTl] = useState([])
   const [isOverlined, setIsOverlined] = useState([]);
+  const [showNoTodo, setshowNoTodo] = useState(false)
 
   let data = {
     ur,
@@ -23,15 +24,13 @@ function App() {
   async function hs() {
     if (ur == '') {
       alert("filling user name is required.")
-    } 
+    }
     if (pass == '') {
       alert("filling passwerd is required.")
-    } else if(isNaN(pass)){
-      alert("Password should only number.")
-    } else {
+    }else {
       try {
-        const response = await fetch('https://todo-backend-3-9tr9.onrender.com/singup', {
-       // const response = await fetch('http://localhost:8000/singup', {
+        const response = await fetch('https://todo-backend-3-9tr9.onrender.com/singup'||'http://localhost:8000/singup', {
+        //const response = await fetch('http://localhost:8000/singup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -69,12 +68,10 @@ function App() {
       alert("filling user name is required.")
     } if (pass == '') {
       alert("filling passwerd is required.")
-    }if(isNaN(pass)){
-      alert("Password should only number.")
-    } else {
+    }  else {
       try {
-        const response = await fetch('https://todo-backend-3-9tr9.onrender.com/login', {
-      // const response = await fetch('http://localhost:8000/login', {
+        const response = await fetch('https://todo-backend-3-9tr9.onrender.com/login'||'http://localhost:8000/login', {
+        //const response = await fetch('http://localhost:8000/login', {
           method: 'POST',
           credentials: 'include',
           headers: {
@@ -91,7 +88,9 @@ function App() {
         console.error('Error sending data:', error);
       }
       if (!result || result == "no") {
-        alert('Wrong credential retry')
+        alert('Please sign in, create account.OR your user name is wrong')
+      } else if (result == "no pass") {
+        alert("wrong password")
       } else {
         setShowLogin(false);
         setShowT(true)
@@ -117,6 +116,7 @@ function App() {
   //handle todo
   async function getlist() {
     try {
+      
       const response = await fetch('https://todo-backend-3-9tr9.onrender.com/getTodos', {
       //const response = await fetch('http://localhost:8000/getTodos', {
         method: "GET",
@@ -128,6 +128,12 @@ function App() {
         alert("Unown User.")
       } else {
         setTl(result);
+        if(result==""){
+          console.log(tl.length)
+          setshowNoTodo(true)
+        }else{
+          setshowNoTodo(false)
+        }
       }
 
 
@@ -142,7 +148,7 @@ function App() {
 
   async function htl() {
     try {
-      const response = await fetch('https://todo-backend-3-9tr9.onrender.com/todo', {
+      const response = await fetch('https://todo-backend-3-9tr9.onrender.com/todo'||'http://localhost:8000/todo', {
       //const response = await fetch('http://localhost:8000/todo', {
         method: 'POST',
         credentials: 'include',
@@ -163,13 +169,20 @@ function App() {
   }
 
   //handle delete 
-  async function hd(index) {
+  async function hd(todoItem) {
     try {
-      const dl = index;
+
       const response = await fetch('https://todo-backend-3-9tr9.onrender.com/delete', {
+      //const response = await fetch('http://localhost:8000/delete', {
         method: "POST",
         credentials: "include",
-        body: dl, // ⬅️ Required to send cookie
+        headers: {
+          'Content-Type': 'application/json', // ⬅️ Required for JSON
+        },
+        body: JSON.stringify({
+          _id: todoItem._id,
+          isDone: todoItem.isDone
+        }), // ⬅️ Required to send cookie
       });
 
       result = await response.json();
@@ -183,7 +196,7 @@ function App() {
 
   async function hu(value) {
     try {
-      setList(value);
+      setList(value.todo);
       hd(value);
     } catch (error) {
       console.log(error)
@@ -195,26 +208,27 @@ function App() {
   }
 
   // Handle isDone toggle
-async function hup(todoItem) {
-  try {
-    const response = await fetch('https://todo-backend-3-9tr9.onrender.com/hup', {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        'Content-Type': 'application/json', // ⬅️ Required for JSON
-      },
-      body: JSON.stringify({
-        _id: todoItem._id,
-        isDone: todoItem.isDone
-      })
-    });
+  async function hup(todoItem) {
+    try {
+      const response = await fetch('https://todo-backend-3-9tr9.onrender.com/hup', {
+      //const response = await fetch('http://localhost:8000/hup', {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          'Content-Type': 'application/json', // ⬅️ Required for JSON
+        },
+        body: JSON.stringify({
+          _id: todoItem._id,
+          isDone: todoItem.isDone
+        })
+      });
 
-    result = await response.json();
-    getlist(); // Refresh todo list
-  } catch (error) {
-    console.error('Error toggling isDone:', error);
+      result = await response.json();
+      getlist(); // Refresh todo list
+    } catch (error) {
+      console.error('Error toggling isDone:', error);
+    }
   }
-}
 
 
 
@@ -239,7 +253,7 @@ async function hup(todoItem) {
             <h2>User Name:</h2>
             <input type="text" placeholder='Enter UserName' autoFocus onChange={(e) => setUr(e.target.value)} required className="ur" />
             <h2>Password: </h2>
-            <input type="password" placeholder='Enter Password'  className="ur ps"  required onChange={(e) => setPass(e.target.value)} /><br></br>
+            <input type="password" placeholder='Enter Password' className="ur ps" required onChange={(e) => setPass(e.target.value)} /><br></br>
             <button type='submit' className='submit' onClick={hl} name='submit'>Submit</button>
           </div>
             <h3 className='h3' onClick={hnha}>I don't have any account.</h3>
@@ -251,17 +265,20 @@ async function hup(todoItem) {
         <div className="container">
           <div className="hed">
 
-            <div className='hb'> <h1 className="hedder">Todo List</h1> <button className='rbtn' style={{display:"none"}} onClick={getlist}>🔄</button>  </div>
+            <div className='hb'> <h1 className="hedder">Todo List</h1> <button className='rbtn' style={{ display: "none" }} onClick={getlist}>🔄</button>  </div>
             <input type="text" value={list} onChange={(e) => setList(e.target.value)} placeholder='Add Todo Here' className="text" />
             <div onClick={htl} className="add">Add
             </div></div>
-          <div className='list'>
+          <div className='list' >
             <div className="list1">
               <h2 className="yl">Your Todos</h2>
+              {showNoTodo ? (
+                <center><br></br><br></br><div className='no-todo'><h3>No tasks yet.Add tasks.</h3></div></center>
+              ) : null}
               <ol className='ol'>
                 {tl.map((value, index) => (
-                  <li style={{textDecoration: value.isDone ? "line-through" : "none"}} onClick={()=> hup(value)} className='li' key={index}>{value.todo}
-                    <div><button onClick={() => hu(value.todo)} className='update btn'><img src='/update.png' width={20} height={23}></img></button><button onClick={() => hd(value.todo)} className='delet btn'><img src='/delete.png' width={20} height={23}></img></button></div></li>
+                  <li style={{ textDecoration: value.isDone ? "line-through" : "none" }} onClick={() => hup(value)} className='li' key={index}>{value.todo}
+                    <div><button onClick={() => hu(value)} className='update btn'><img src='/update.png' width={20} height={23}></img></button><button onClick={() => hd(value)} className='delet btn'><img src='/delete.png' width={20} height={23}></img></button></div></li>
                 ))}
               </ol>
             </div>
